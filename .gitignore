@@ -1,0 +1,15 @@
+#vscode
+.vscode
+# node_modules
+node_modules
+# dist
+dist
+# idea
+.idea
+
+# misc
+yarn-error.log
+.DS_Store
+
+# coverage
+coverage
