@@ -1,0 +1,18 @@
+.nav-item {
+  @apply w-14 h-10 flex justify-center items-center rounded-md transition-all duration-75 cursor-pointer ml-1;
+
+  &:first-child {
+    @apply ml-0;
+  }
+
+  &.active {
+    @apply bg-white;
+    svg {
+      @apply transition-all duration-75;
+      path,
+      rect {
+        @apply fill-primary stroke-primary;
+      }
+    }
+  }
+}

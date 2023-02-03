@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./src/**/*.{js,ts,tsx}', './public/index.html'],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        primary: 'rgb(var(--primary-color) / <alpha-value>)'
+      }
+    }
   },
   variants: {
     extend: {}

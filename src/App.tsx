@@ -1,14 +1,15 @@
 import microApp from '@micro-zoe/micro-app'
 import { notification } from 'antd'
 import React, { useEffect } from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { SWRConfig } from 'swr'
-import { genRouteObjects, routes } from './routes'
-import { fetcher } from './utils/request'
 
 microApp.start()
 
-const App: React.FC = () => {
+interface ChildrenProps {
+  children?: React.ReactNode
+}
+
+// 初始配置
+const App: React.FC<ChildrenProps> = ({ children }) => {
   // 通知配置
   useEffect(() => {
     notification.config({
@@ -16,11 +17,7 @@ const App: React.FC = () => {
     })
   }, [])
 
-  return (
-    <SWRConfig value={{ fetcher }}>
-      <RouterProvider router={createBrowserRouter(genRouteObjects(routes))}></RouterProvider>
-    </SWRConfig>
-  )
+  return <>{children}</>
 }
 
 export default App

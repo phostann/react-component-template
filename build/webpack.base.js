@@ -39,12 +39,16 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
-        include: path.resolve(__dirname, '../src'),
-        use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // loader 从右往左执行
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
       },
       {
-        test: /.(png|jpg|jpeg|gif|svg)$/,
+        test: /.(png|jpg|jpeg|gif)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {
@@ -54,6 +58,10 @@ module.exports = {
         generator: {
           filename: 'static/images/[name].[contenthash:8][ext]'
         }
+      },
+      {
+        test: /svg$/,
+        use: ['@svgr/webpack']
       },
       {
         test: /.(woff2?|eot|ttf|otf)$/, // 匹配字体图标文件

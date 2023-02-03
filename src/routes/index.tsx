@@ -21,8 +21,44 @@ export const routes: RouteItem[] = [
       {
         path: '/home',
         name: '首页',
-        element: lazy(async () => await import('@/pages/home')),
-        icon: 'https://phostann-1259448770.cos.ap-beijing.myqcloud.com/0.png'
+        hideInMenu: true,
+        element: lazy(async () => await import('@/pages/home'))
+      },
+      {
+        path: '/service-center',
+        name: '业务平台',
+        hideInMenu: true,
+        element: lazy(async () => await import('@/pages/service-center'))
+      },
+      {
+        path: '/desktop',
+        name: '应用平台',
+        hideInMenu: true,
+        element: lazy(async () => await import('@/pages/desktop'))
+      },
+      {
+        path: '/workbench',
+        name: '定义平台',
+        hideInMenu: true,
+        element: lazy(async () => await import('@/pages/workbench'))
+      },
+      {
+        path: '/database',
+        name: '数据平台',
+        hideInMenu: true,
+        element: lazy(async () => await import('@/pages/database'))
+      },
+      {
+        path: '/visual',
+        name: '态势平台',
+        hideInMenu: true,
+        element: lazy(async () => await import('@/pages/visual'))
+      },
+      {
+        path: '/develop',
+        name: '开发平台',
+        hideInMenu: true,
+        element: lazy(async () => await import('@/pages/develop'))
       }
     ]
   }
@@ -30,7 +66,7 @@ export const routes: RouteItem[] = [
 
 export const genRouteObjects = (routes: RouteItem[]): RouteObject[] => {
   return routes
-    .filter((route) => route.href != null)
+    .filter((route) => route.href == null)
     .map((route) => {
       const routeObject = { ...route }
       if (routeObject.redirect != null) {

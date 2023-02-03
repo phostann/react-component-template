@@ -1,12 +1,10 @@
 const { merge } = require('webpack-merge')
-const globAll = require('glob-all')
 const path = require('path')
 const baseConfig = require('./webpack.base.js')
 const CopyPlugin = require('copy-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const { PurgeCSSPlugin } = require('purgecss-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = merge(baseConfig, {
@@ -26,13 +24,13 @@ module.exports = merge(baseConfig, {
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash:8].css'
     }),
-    // 清理无用 css
-    new PurgeCSSPlugin({
-      paths: globAll.sync([
-        `${path.join(__dirname, '../src')}/**/*.tsx`,
-        path.join(__dirname, '../public/index.html')
-      ])
-    }),
+    // 清理无用 css, 不能针对 tailwindcss arbitrary value 做特殊处理，存在 bug, 暂不使用
+    // new PurgeCSSPlugin({
+    //   paths: globAll.sync([
+    //     `${path.join(__dirname, '../src')}/**/*.tsx`,
+    //     path.join(__dirname, '../public/index.html')
+    //   ])
+    // }),
     // gzip 压缩
     new CompressionPlugin({
       test: /.(js|css)$/, // 只生成css,js压缩文件
