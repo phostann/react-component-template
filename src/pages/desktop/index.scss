@@ -1,0 +1,47 @@
+.content-container {
+  height: calc(100vh - theme('spacing.14'));
+}
+
+.level-1-nav {
+  @apply text-white;
+  &.active {
+    @apply bg-white text-primary relative;
+
+    .corner {
+      &::before {
+        content: '';
+        width: 200%;
+        height: 200%;
+        @apply block rounded-full absolute;
+      }
+
+      &.above {
+        &::before {
+          @apply bottom-0 right-0;
+          box-shadow: rgb(255 255 255) 6px 6px 0 0;
+        }
+      }
+
+      &.below {
+        &::before {
+          @apply top-0 right-0;
+        }
+
+        &::before {
+          box-shadow: rgb(255 255 255) 6px -6px 0 0;
+        }
+      }
+    }
+  }
+}
+
+.level-2-nav {
+  &.active {
+    &::before {
+      content: '';
+      box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px 1px;
+      background-color: rgb(245, 245, 245);
+      @apply block w-16 h-16 absolute -left-2 -top-2 rounded-xl;
+    }
+  }
+}

@@ -10,7 +10,7 @@ import VisualIcon from '@/assets/images/visual.svg'
 import DevelopIcon from '@/assets/images/develop.svg'
 import './index.scss'
 
-const BaseLayout: React.FC = () => {
+const ISPLayout: React.FC = () => {
   const location = useLocation()
   const navigate = useNavigate()
   // 当前选中的导航
@@ -25,8 +25,8 @@ const BaseLayout: React.FC = () => {
   }
 
   return (
-    <div className="w-screen h-screen flex flex-col overflow-x-hidden overflow-y-auto">
-      <header className="w-screen h-14 bg-primary flex items-center py-2 box-border pl-10">
+    <>
+      <header className="w-screen h-14 bg-primary flex items-center py-2 box-border pl-10 overflow-hidden sticky top-0 left-0">
         <div
           className="rounded-full w-8 h-8 bg-white bg-cover"
           style={{
@@ -101,8 +101,8 @@ const BaseLayout: React.FC = () => {
         </nav>
       </header>
       <Outlet></Outlet>
-    </div>
+    </>
   )
 }
 
-export default BaseLayout
+export default ISPLayout
