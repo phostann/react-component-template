@@ -81,10 +81,14 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@better-scroll/core": "^2.5.0",
+    "@better-scroll/mouse-wheel": "^2.5.0",
     "@micro-zoe/micro-app": "^0.8.10",
     "antd": "^5.1.7",
     "axios": "^1.2.6",
     "jotai": "^1.13.1",
+    "localforage": "^1.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.0",
