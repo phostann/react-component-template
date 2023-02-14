@@ -17,7 +17,7 @@ export const routes: RouteItem[] = [
     element: lazy(async () => await import('@/layouts/isp')),
     hideInMenu: true,
     children: [
-      { path: '/', redirect: '/home', hideInMenu: true },
+      { path: '/', hideInMenu: true, redirect: '/home' },
       {
         path: '/home',
         name: '首页',
