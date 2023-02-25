@@ -14,50 +14,38 @@ export type RouteItem = Omit<RouteObject, 'children'> & {
 
 export const routes: RouteItem[] = [
   {
-    element: lazy(async () => await import('@/layouts/isp')),
+    element: lazy(async () => await import('@/layouts/basic')),
     hideInMenu: true,
     children: [
       { path: '/', hideInMenu: true, redirect: '/home' },
       {
         path: '/home',
         name: '首页',
-        hideInMenu: true,
         element: lazy(async () => await import('@/pages/home'))
       },
       {
         path: '/service-center',
         name: '业务平台',
-        hideInMenu: true,
         element: lazy(async () => await import('@/pages/service-center'))
-      },
-      {
-        path: '/desktop',
-        name: '应用平台',
-        hideInMenu: true,
-        element: lazy(async () => await import('@/pages/desktop'))
       },
       {
         path: '/workbench',
         name: '定义平台',
-        hideInMenu: true,
         element: lazy(async () => await import('@/pages/workbench'))
       },
       {
         path: '/database',
         name: '数据平台',
-        hideInMenu: true,
         element: lazy(async () => await import('@/pages/database'))
       },
       {
         path: '/visual',
         name: '态势平台',
-        hideInMenu: true,
         element: lazy(async () => await import('@/pages/visual'))
       },
       {
         path: '/develop',
         name: '开发平台',
-        hideInMenu: true,
         element: lazy(async () => await import('@/pages/develop'))
       }
     ]
