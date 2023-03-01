@@ -12,6 +12,9 @@ module.exports = merge(baseConfig, {
     compress: false, // 开发环境不启用 gzip 压缩
     hot: true,
     historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
     static: {
       directory: path.join(__dirname, '../public')
     }
