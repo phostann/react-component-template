@@ -13,7 +13,7 @@ const root = document.getElementById('root')
 void (async () => {
   try {
     // await localforage.setDriver(localforage.LOCALSTORAGE)
-    localforage.config({ name: 'host-app' })
+    localforage.config({ name: 'react-component-app' })
   } catch (error) {
     console.log(error)
   }
@@ -23,7 +23,11 @@ if (root != null) {
   createRoot(root).render(
     <SWRConfig value={{ fetcher }}>
       <App>
-        <RouterProvider router={createBrowserRouter(genRouteObjects(routes))}></RouterProvider>
+        <RouterProvider
+          router={createBrowserRouter(genRouteObjects(routes), {
+            basename: window.__MICRO_APP_BASE_ROUTE__ ?? '/'
+          })}
+        ></RouterProvider>
       </App>
     </SWRConfig>
   )

@@ -14,7 +14,7 @@ export type RouteItem = Omit<RouteObject, 'children'> & {
 
 export const routes: RouteItem[] = [
   {
-    element: lazy(async () => await import('@/layouts/basic')),
+    element: lazy(async () => await import('@/layouts/blank')),
     hideInMenu: true,
     children: [
       { path: '/', hideInMenu: true, redirect: '/home' },
@@ -22,31 +22,6 @@ export const routes: RouteItem[] = [
         path: '/home',
         name: '首页',
         element: lazy(async () => await import('@/pages/home'))
-      },
-      {
-        path: '/service-center',
-        name: '业务平台',
-        element: lazy(async () => await import('@/pages/service-center'))
-      },
-      {
-        path: '/workbench',
-        name: '定义平台',
-        element: lazy(async () => await import('@/pages/workbench'))
-      },
-      {
-        path: '/database',
-        name: '数据平台',
-        element: lazy(async () => await import('@/pages/database'))
-      },
-      {
-        path: '/visual',
-        name: '态势平台',
-        element: lazy(async () => await import('@/pages/visual'))
-      },
-      {
-        path: '/develop',
-        name: '开发平台',
-        element: lazy(async () => await import('@/pages/develop'))
       }
     ]
   }

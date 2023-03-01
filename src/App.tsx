@@ -1,8 +1,5 @@
-import microApp from '@micro-zoe/micro-app'
 import { notification } from 'antd'
 import React, { useEffect } from 'react'
-
-microApp.start()
 
 interface ChildrenProps {
   children?: React.ReactNode
