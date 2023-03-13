@@ -1,7 +1,10 @@
 import { notification } from 'antd'
 import axios, { AxiosError, type AxiosResponse, type InternalAxiosRequestConfig } from 'axios'
+import { isObject } from './utils'
+import { BASE_URL } from '@/config/urlConfig'
 
-axios.defaults.baseURL = 'http://localhost:9999'
+axios.defaults.headers['Content-Type'] = 'application/json;charset=UTF-8'
+axios.defaults.baseURL = BASE_URL
 
 interface Token {
   access_token: string
@@ -70,6 +73,11 @@ axios.interceptors.response.use(
 )
 
 export const request = axios
+
+interface FetcherWithParams {
+  url: string
+  params?: any
+}
 
 export const fetcher = async (payload: string | FetcherWithParams): Promise<any> => {
   let url = '/'
